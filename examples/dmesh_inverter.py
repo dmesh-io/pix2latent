@@ -28,7 +28,9 @@ args = parser.parse_args()
 ### ---- initialize --- ###
 model = None
 if args.model_file:
+    print("Loading model from {}".format(args.model_file))
     model = torch.load(args.model_file)
+    model.eval()
 else:
     model = StyleGAN2(model='cars', search='z')
 
